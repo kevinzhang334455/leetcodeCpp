@@ -1,0 +1,7 @@
+*
+!*.cpp
+!*.hpp
+!*.json
+!*.code-workspace
+!.vscode/
+!.gitignore
