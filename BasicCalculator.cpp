@@ -28,6 +28,8 @@ public:
             return std::isspace(x);
             }), s.end());
 
+        s.push_back('&'); // EOF
+
         stack<int> nums;
         stack<char> ops;
 
@@ -69,24 +71,13 @@ public:
                 {
                     ops.pop(); // pop for the left '('
                 }
-                else
+                else if (s[i] != '&')
                 {
                     ops.push(s[i]);
                     nums.push(curr);
                     curr = 0;
                 }
             }
-        }
-
-        while (!nums.empty())
-        {
-            int prev = nums.top();
-            nums.pop();
-            char op = !ops.empty() ? ops.top() : '+';
-
-            curr = Calc(prev, curr, op);
-
-            ops.pop();
         }
 
         return curr;
