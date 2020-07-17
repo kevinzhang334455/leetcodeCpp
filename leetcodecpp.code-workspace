@@ -7,7 +7,8 @@
 	"settings": {
 		"files.associations": {
 			"stack": "cpp",
-			"string": "cpp"
+			"string": "cpp",
+			"vector": "cpp"
 		}
 	}
 }
