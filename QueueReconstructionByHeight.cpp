@@ -22,6 +22,11 @@ public:
             }
         });
         
+        // By sorting in such a way, we make sure that for each people[i], all people
+        // before i should be either taller or equally tall but they have small number
+        // that people should before them. 
+        // Then we just can directly do insertion. 
+
         for (int i = 0; i < people.size(); i++) {
             if (res.empty()) {
                 res.push_back(people[i]);
