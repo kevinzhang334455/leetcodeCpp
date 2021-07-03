@@ -12,7 +12,8 @@
 			"iosfwd": "cpp",
 			"unordered_map": "cpp",
 			"unordered_set": "cpp",
-			"algorithm": "cpp"
+			"algorithm": "cpp",
+			"utility": "cpp"
 		}
 	}
 }
