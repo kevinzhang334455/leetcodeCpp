@@ -20,3 +20,14 @@ Example 2:
 
 Input: nums = [1,5]
 Output: 10 */
+
+class Solution {
+public:
+    int maxCoins(vector<int>& nums) {
+        
+    }
+};
+
+int main () {
+
+}
