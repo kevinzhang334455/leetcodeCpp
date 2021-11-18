@@ -16,10 +16,10 @@ public:
             return false;
         }
 
-        unordered_map<int, int> mp;
+        unordered_map<long long, int> mp;
         int min_num = *std::min_element(nums.begin(), nums.end());
         for (int i = 0; i < nums.size(); i++) {
-            int bucket = (nums[i] - min_num) / (t + 1);
+            long long bucket = ((long long)nums[i] - (long long)min_num) / ((long long)t + (long long)1);
             if (mp.find(bucket) != mp.end() 
             || (mp.find(bucket + 1) != mp.end() && mp[bucket + 1] - nums[i] <= t)
             || (mp.find(bucket - 1) != mp.end() && nums[i] - mp[bucket - 1] <= t))
@@ -28,8 +28,8 @@ public:
             }
 
             mp[bucket] = nums[i];
-            if (mp.size() > k + 1) {
-                mp.erase((nums[i - k - 1] - min_num) / (t + 1));
+            if (mp.size() > k) {
+                mp.erase((nums[i - k] - min_num) / (t + 1));
             }
         }
 
@@ -43,8 +43,10 @@ int main () {
     vector<int> nums1 = {1, 2, 3, 1};
     vector<int> nums2 = {1, 4, 2, 3};
     vector<int> nums3 = {5, 1, 8, 14, 4};
+    vector<int> nums4 = {INT_MAX, -1, INT_MIN };
  
-    cout << s.containsNearbyAlmostDuplicate(nums1, 3, 0) << endl;
-    cout << s.containsNearbyAlmostDuplicate(nums2, 1, 2) << endl;
-    cout << s.containsNearbyAlmostDuplicate(nums3, 3, 3) << endl;
+    // cout << s.containsNearbyAlmostDuplicate(nums1, 3, 0) << endl;
+    // cout << s.containsNearbyAlmostDuplicate(nums2, 1, 2) << endl;
+    // cout << s.containsNearbyAlmostDuplicate(nums3, 3, 3) << endl;
+    cout << s.containsNearbyAlmostDuplicate(nums4, 1, INT_MAX) << endl;
 }
