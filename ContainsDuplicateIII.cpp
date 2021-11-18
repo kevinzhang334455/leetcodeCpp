@@ -12,7 +12,7 @@ using namespace std;
 class Solution {
 public:
     bool containsNearbyAlmostDuplicate(vector<int>& nums, int k, int t) {
-        if (nums.size() < 2 || k <= 0 || t < 1) {
+        if (nums.size() < 2 || k < 1 || t < 0) {
             return false;
         }
 
