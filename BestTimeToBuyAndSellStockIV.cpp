@@ -38,7 +38,36 @@ K \ day | d0 = 3 | d1 = 2 | d2 = 6 | d3 = 5 | d4 = 0 | d5 = 3
 
 */
 
+// Basic Idea:
+// Define dp[i][j] = the most profit at day j with i transactions at most.
+// And on day j, we have two options: sell stock at day j or no.
+// Define jj = the day when last time buy the stock. Then,
+// dp[i][j] = max(dp[i][j - 1], prices[j] + dp[i - 1][jj] - prices[jj]) 
+// where jj can be in range of [1..j-1].
+// So, what we can do is that we can maintain the local variable
+// prevLocalMax = dp[i - 1][jj] - prices[jj] for all jj = [1..j - 1]
 class Solution {
+public:
+    int maxProfit(int k, vector<int>& prices) {
+        if (k <= 0 || prices.empty() || prices.size() == 1) {
+            return 0;
+        }
+
+        vector<vector<int>> dp(k + 1, vector<int>(prices.size(), 0));
+        for (int i = 1; i <= k; i++) {
+            int prevLocalMax = -prices[0];
+            for (int j = 1; j < prices.size(); j++) {
+                dp[i][j] = max(dp[i][j - 1], prevLocalMax + prices[j]);
+                prevLocalMax = max(prevLocalMax, dp[i - 1][j] - prices[j]);
+            }
+        }
+
+        return dp.back().back();
+    }
+};
+
+// Wrong Solution.
+class Solution1 {
 public:
     int maxProfit(int k, vector<int>& prices) {
         if (k <= 0 || prices.empty() || prices.size() == 1) {
@@ -85,5 +114,5 @@ int main () {
 
     // Test(test1, 2);
     // Test(test2, 2);
-    Test(test3, 2);
+    Test(test1, 2);
 }
