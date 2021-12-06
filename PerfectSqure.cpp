@@ -25,6 +25,7 @@ private:
 
         // By iterating from sqaures (i*i) we can save 1 call of 
         // numSqaureHelper, comparing to iterate from i to num/2.
+        // Then the complexity goes down from O(2^n) to O(N).
         for (int i = 1; i <= end; i++) {
             int remain = numSquareHelper(num - i * i, table);
             ans = min(ans, 1 + remain);
