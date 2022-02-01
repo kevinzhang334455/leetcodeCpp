@@ -13,7 +13,6 @@ using namespace std;
 class Solution {
 public:
     string encode(string s) {
-        vector<vector<string>> dp;
         
     }
 };

@@ -14,7 +14,10 @@
 			"unordered_set": "cpp",
 			"algorithm": "cpp",
 			"utility": "cpp",
-			"queue": "cpp"
+			"queue": "cpp",
+			"deque": "cpp",
+			"list": "cpp",
+			"optional": "cpp"
 		}
 	}
 }
